@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome</title>
+    <title>Custom</title>
 </head>
 <body>
-    <h1>Bienvenido</h1>
-
-    <a href="{{ route('custom') }}">Custom</a>
-    <a href="{{ route('contact') }}">Contact</a>
+    <h1>Custom</h1>
 </body>
 </html>
