@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserDetailsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get("/", [TestController::class,"index"])->name("index");
+Route::get("/user/{userId}/details", [UserDetailsController::class, "userDetails"])->name("userDetails");
