@@ -9,4 +9,6 @@
 <body>
     <p>{{ $name }}</p>
 </body>
+
+@include("fragment.subview")
 </html>
