@@ -12,7 +12,12 @@ class TestController extends Controller
      */
     public function index()
     {
-        return view("test/index", ['name' => 'Andrea']);
+        # Variables locales
+        $posts = [1,2,3,4];
+        $name = 'Andrea';
+
+        # Devuelve la vista index junto con los valores de las variables posts y name
+        return view("test/index", compact('posts', 'name'));
     }
 
     /**
