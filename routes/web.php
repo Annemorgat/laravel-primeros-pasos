@@ -13,4 +13,6 @@ use App\Http\Controllers\UserDetailsController;
 |
 */
 
-Route::get("/user/{userId}/details", [UserDetailsController::class, "userDetails"])->name("userDetails");
+Route::get("/user/{userId}/details", [UserDetailsController::class, "userDetails"])
+    ->name("userDetails")
+    ->where(['userId' => '[1-9][0-9]*']);
