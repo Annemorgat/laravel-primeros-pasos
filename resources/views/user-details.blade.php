@@ -30,6 +30,21 @@
             <strong>Email:</strong>
             {{ $user->email }}
         </li>
-    </ul>
+
+        <li>
+            <strong>Fecha de verificación:</strong>
+            {{ $user->email_verified_at }}
+        </li>
+
+        <li>
+            <strong>Token:</strong>
+            {{ $user->remember_token }}
+        </li>
+
+        <li>
+            <strong>Última actualización:</strong>
+            {{ $user->updated_at }}
+        </li>
+
 </body>
 </html>
