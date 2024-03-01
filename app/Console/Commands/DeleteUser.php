@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class DeleteUser extends Command
 {
@@ -26,11 +27,13 @@ class DeleteUser extends Command
      */
     public function handle()
     {
-         if ($user = User::find($this->argument('userId'))) {
+        try {
+            $user = User::findOrFail($this->argument('userId'));
+
             $user->delete();
             $this->info('Usuario borrado correctamente');
-         } else {
+        } catch (ModelNotFoundException $e) {
             $this->error("El usuario con id {$this->argument('userId')} no existe");
-         }
+        }
     }
 }
