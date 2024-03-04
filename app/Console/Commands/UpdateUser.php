@@ -42,22 +42,8 @@ class UpdateUser extends Command
         }
 
         if ($user = User::find($this->argument('userId'))) {
-            if ($this->option('name') !== null) {
-                $user->name = $this->option('name');
-                $this->info("Actualizando name = {$this->option('name')}");
-            }
+            $this->updateUser($user);
 
-            if ($this->option('email') !== null) {
-                $user->email = $this->option('email');
-                $this->info("Actualizando email = {$this->option('email')}");
-            }
-
-            if ($this->option('password') !== null) {
-                $user->password = $this->option('password');
-                $this->info("Actualizando password = {$this->option('password')}");
-            }
-
-            $user->save();
             $this->info("Usuario {$this->argument('userId')} actualizado");
 
             return 0;
@@ -76,5 +62,27 @@ class UpdateUser extends Command
             ($this->option('email') !== null) ||
             ($this->option('password') !== null)
         );
+    }
+
+    protected function updateUser(User $user, bool $persist = true)
+    {
+        if ($this->option('name') !== null) {
+            $user->name = $this->option('name');
+            $this->info("Actualizando name = {$this->option('name')}");
+        }
+
+        if ($this->option('email') !== null) {
+            $user->email = $this->option('email');
+            $this->info("Actualizando email = {$this->option('email')}");
+        }
+
+        if ($this->option('password') !== null) {
+            $user->password = $this->option('password');
+            $this->info("Actualizando password = {$this->option('password')}");
+        }
+
+        if ($persist) {
+            $user->save();
+        }
     }
 }
