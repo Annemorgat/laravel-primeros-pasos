@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
-use Doctrine\DBAL\Schema\View;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -21,7 +21,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        echo view('Dashboard/Post/create');
+        $categories = Category::get();
+
+        echo view('Dashboard/Post/create', compact('categories'));
     }
 
     /**
@@ -30,7 +32,6 @@ class PostController extends Controller
     public function store(Request $request)
     {
         dd($request->all());
-        // dd($request->all());
     }
 
     /**
